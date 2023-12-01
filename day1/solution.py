@@ -2,6 +2,7 @@
 curr_number = ""
 counter = 0
 cnt = 0
+
 index = 0
 with open('sample.txt' , 'r') as f:
     for line in f:
