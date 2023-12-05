@@ -8,8 +8,8 @@ with open('sample.txt', 'r') as f:
     seeds = f.readline()[7:].split(' ')
     soils = []
     a = ""
-    while not bool(re.match(r"[\d \d \d]", a)):
-        a = f.readline()
-        print(a)
+    for line in f:
+        while not bool(re.match(r"[\d \d \d]", line)):
+            print(a)
 
  
