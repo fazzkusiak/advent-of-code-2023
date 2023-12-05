@@ -6,10 +6,12 @@ then, we have several maps, we are checking, if our one is in one of them, and i
 import re
 with open('sample.txt', 'r') as f:
     seeds = f.readline()[7:].split(' ')
-    soils = []
+    curr = []
     a = ""
-    for line in f:
-        while not bool(re.match(r"[\d \d \d]", line)):
-            print(a)
-
- 
+    for seed in seeds:
+        for line in f:
+            if bool(re.match(r"[\d \d \d]", line)):
+                curr.append(line.rstrip('\n'))
+            elif bool(re.match(r"[^\d]", line)):
+                print(curr[0])
+                break
