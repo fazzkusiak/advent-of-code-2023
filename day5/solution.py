@@ -13,5 +13,5 @@ with open('sample.txt', 'r') as f:
             if bool(re.match(r"[\d \d \d]", line)):
                 curr.append(line.rstrip('\n'))
             elif bool(re.match(r"[^\d]", line)):
-                print(curr[0])
-                break
+                                    
+                print(curr)
