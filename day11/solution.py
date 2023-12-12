@@ -5,6 +5,7 @@ arr = []
 new_arr = []
 sum = 0
 count = 0
+cnt = 0
 with open('sample.txt', 'r') as f:
     for i in f:
         if '#' not in i:
@@ -13,19 +14,40 @@ with open('sample.txt', 'r') as f:
             count += 1
         else:
             arr.append(i.strip('\n'))
+    
+    # now check rows
+    
+    for i in range(0, len(arr)):
+        is_row_empty = True
+        if arr[0][i] == '#':
+            is_row_empty = False
+            continue
+        if is_row_empty:
+            
+            for j in range(0, len(arr))
+                arr.insert(j, '.')
 
     print(arr)
  
     #other approach, just skim over all indexes and check if its #, if so, note the index of x and y into list, after all just loop over this list and make difference between these, like abs(x2-x1) + abs(y2-y1), if diff (x2 - x1) then add 1 to the sum
+    # forogt to include EMPTY rows also and add dots there, sorry
+    
 
     for i in range(0, len(arr)):
         for j in range(0, len(arr) - count ):
-            print(arr[i][j])
             if arr[i][j] == '#':
                 new_arr.append([i,j])
-    for x in range(0, len(new_arr)):
-        print(new_arr[x][0])
-   
+    for i in range(0, len(new_arr)):
+        print(new_arr[i])
+        for j in range(i + 1, len(new_arr)):
+            print(new_arr[j])
+            cnt+=1
+            score = abs(new_arr[j][0] - new_arr[i][0]) + \
+                    abs(new_arr[j][1] - new_arr[i][1])
+            print(score)
+            sum +=  score
+    print(cnt)            
+    print(sum)
     # print(new_arr)
     # for i in range(0, len(arr)):
     #     if '#' in arr[i]:
